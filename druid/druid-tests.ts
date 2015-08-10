@@ -6,6 +6,17 @@ var timeBoundaryQuery: Druid.Query = {
     "bound": "maxTime"
 };
 
+var timeBoundaryResults: Druid.TimeBoundaryResults = [
+  {
+    "timestamp" : "2013-05-09T18:24:00.000Z",
+    "result" : {
+      "minTime" : "2013-05-09T18:24:00.000Z",
+      "maxTime" : "2013-05-09T18:37:00.000Z"
+    }
+  }
+]
+
+
 var timeseriesQuery: Druid.Query = {
     "queryType": "timeseries",
     "dataSource": "sample_datasource",
@@ -208,26 +219,57 @@ var groupByResults: Druid.GroupByResults = [
 ];
 
 var segmentMetadataQuery: Druid.Query = {
-    "queryType": "segmentMetadata",
-    "dataSource": "sample_datasource",
-    "intervals": ["2013-01-01/2014-01-01"],
-    "toInclude": {
-        "type": "list",
-        "columns": ['column1', 'column2']
-    },
-    "merge": true
+  "queryType": "segmentMetadata",
+  "dataSource": "sample_datasource",
+  "intervals": ["2013-01-01/2014-01-01"],
+  "toInclude": {
+    "type": "list",
+    "columns": ['column1', 'column2']
+  },
+  "merge": true
 };
 
 var segmentMetadataResult: Druid.SegmentMetadataResults = [
-    {
-        "id": "some_id",
-        "intervals": [ "2013-05-13T00:00:00.000Z/2013-05-14T00:00:00.000Z" ],
-        "columns": {
-            "__time": { "type": "LONG", "size": 407240380, "cardinality": null },
-            "dim1": { "type": "STRING", "size": 100000, "cardinality": 1944 },
-            "dim2": { "type": "STRING", "size": 100000, "cardinality": 1504 },
-            "metric1": { "type": "FLOAT", "size": 100000, "cardinality": null }
-        },
-        "size": 300000
+  {
+    "id": "some_id",
+    "intervals": [ "2013-05-13T00:00:00.000Z/2013-05-14T00:00:00.000Z" ],
+    "columns": {
+      "__time": { "type": "LONG", "size": 407240380, "cardinality": null },
+      "dim1": { "type": "STRING", "size": 100000, "cardinality": 1944 },
+      "dim2": { "type": "STRING", "size": 100000, "cardinality": 1504 },
+      "metric1": { "type": "FLOAT", "size": 100000, "cardinality": null }
+    },
+    "size": 300000
+  }
+];
+
+var selectResults: Druid.SelectResults = [
+  {
+    "timestamp" : "2013-01-01T00:00:00.000Z",
+    "result" : {
+      "pagingIdentifiers" : {
+        "wikipedia_2012-12-29T00:00:00.000Z_2013-01-10T08:00:00.000Z_2013-01-10T08:13:47.830Z_v9" : 4
+      },
+      "events" : [ {
+        "segmentId" : "wikipedia_editstream_2012-12-29T00:00:00.000Z_2013-01-10T08:00:00.000Z_2013-01-10T08:13:47.830Z_v9",
+        "offset" : 0,
+        "event" : {
+          "timestamp" : "2013-01-01T00:00:00.000Z",
+          "robot" : "1",
+          "namespace" : "article",
+          "anonymous" : "0",
+          "unpatrolled" : "0",
+          "page" : "11._korpus_(NOVJ)",
+          "language" : "sl",
+          "newpage" : "0",
+          "user" : "EmausBot",
+          "count" : 1.0,
+          "added" : 39.0,
+          "delta" : 39.0,
+          "variation" : 39.0,
+          "deleted" : 0.0
+        }
+      } ]
     }
+  }
 ];
