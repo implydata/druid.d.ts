@@ -1,10 +1,10 @@
 {
   "name": "druid.d.ts",
   "version": "0.8.0",
-  "homepage": "https://github.com/implyio/druid.d.ts",
+  "homepage": "https://github.com/implydata/druid.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/implyio/druid.d.ts"
+    "url": "https://github.com/implydata/druid.d.ts"
   },
   "license": "Apache-2.0",
   "engines": {

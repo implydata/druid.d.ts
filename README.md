@@ -2,7 +2,7 @@
 
 For people who like all their types in order.
 
-This ambient type definition was written as part of [Plywood](https://github.com/implyio/plywood) but was extracted as it can be of use in any TypeScript based project that deals with Druid queries.
+This ambient type definition was written as part of [Plywood](https://github.com/implydata/plywood) but was extracted as it can be of use in any TypeScript based project that deals with Druid queries.
 
 ## Usage
 
