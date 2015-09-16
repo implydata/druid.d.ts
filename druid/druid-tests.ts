@@ -30,12 +30,19 @@ var timeseriesQuery: Druid.Query = {
                     { "type": "selector", "dimension": "sample_dimension2", "value": "sample_value2" },
                     { "type": "selector", "dimension": "sample_dimension3", "value": "sample_value3" }
                 ]
-            }
+            },
+            { "type": "search", "dimension": "sample_dimension1", "query": { "type": "fragment", "values": ["A", "B"] } }
         ]
     },
     "aggregations": [
         { "type": "longSum", "name": "sample_name1", "fieldName": "sample_fieldName1" },
-        { "type": "doubleSum", "name": "sample_name2", "fieldName": "sample_fieldName2" }
+        { "type": "doubleSum", "name": "sample_name2", "fieldName": "sample_fieldName2" },
+        {
+          "type": "filtered",
+          "name": "sample_name3",
+          "filter": { "type": "selector", "dimension": "sample_dimension3", "value": "sample_value3" },
+          "aggregator": { "type": "doubleSum", "name": "sample_name3", "fieldName": "sample_fieldName3" }
+        }
     ],
     "postAggregations": [
         { "type": "arithmetic",
@@ -190,7 +197,10 @@ var groupByQuery: Druid.Query = {
         }
     ],
     "intervals": [ "2012-01-01T00:00:00.000/2012-01-03T00:00:00.000" ],
-    "having": { "type": "greaterThan", "aggregation": "sample_name1", "value": 0 }
+    "having": {
+      type: 'not',
+      havingSpec: { "type": "greaterThan", "aggregation": "sample_name1", "value": 0 }
+    }
 };
 
 var groupByResults: Druid.GroupByResults = [
