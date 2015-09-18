@@ -74,6 +74,7 @@ declare module Druid {
         name?: string;
         fieldName?: string;
 
+        // Specific to type: "javascript" and "cardinality"
         fieldNames?: string[];
 
         // Specific to type: "javascript"
@@ -93,6 +94,9 @@ declare module Druid {
         numBuckets?: number;
         lowerLimit?: number;
         upperLimit?: number;
+
+        // Also arbitrary keys are supported
+        [key: string]: any;
     }
 
     // http://druid.io/docs/0.8.1/Post-aggregations.html
