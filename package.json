@@ -1,6 +1,6 @@
 {
   "name": "druid.d.ts",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "homepage": "https://github.com/implydata/druid.d.ts",
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "definition-tester": "0.2.0",
-    "typescript": "1.6.2"
+    "definition-tester": "0.3.0",
+    "typescript": "1.7.3"
   }
 }
