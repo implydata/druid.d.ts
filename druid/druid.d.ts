@@ -70,6 +70,9 @@ declare module Druid {
         // Specific to type: "spatial"
         bound?: SpatialBound;
 
+        // Specific to type: "extraction"
+        extractionFn?: ExtractionFn;
+
         // Specific to type: "not"
         field?: Filter;
 

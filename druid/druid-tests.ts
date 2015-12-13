@@ -302,6 +302,23 @@ var betweenFilter: Druid.Filter = {
   "upper": 10
 };
 
+var extractionFnFilter: Druid.Filter = {
+  "type": "extraction",
+  "dimension": "product",
+  "value": "bar_1",
+  "extractionFn": {
+  "type": "lookup",
+    "lookup": {
+    "type": "map",
+      "map": {
+        "product_1": "bar_1",
+        "product_5": "bar_1",
+        "product_3": "bar_1"
+      }
+    }
+  }
+};
+
 var timeFormatDimensionSpec: Druid.DimensionSpec = {
   "type": "extraction",
   "dimension": "__time",
