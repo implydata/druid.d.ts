@@ -289,6 +289,19 @@ var selectResults: Druid.SelectResults = [
 ];
 
 
+var inFilter: Druid.Filter = {
+  "type": "in",
+  "dimension": "dimTest",
+  "values": ["good","bad"]
+};
+
+var betweenFilter: Druid.Filter = {
+  "type": "between",
+  "dimension": "dimTest",
+  "lower": 3,
+  "upper": 10
+};
+
 var timeFormatDimensionSpec: Druid.DimensionSpec = {
   "type": "extraction",
   "dimension": "__time",
@@ -317,4 +330,10 @@ var namespaceExtractionFn: Druid.ExtractionFn = {
   "lookup": { "type": "namespace", "namespace": "some_lookup" },
   "replaceMissingValueWith": "Unknown",
   "injective": false
+};
+
+var substrExtractionFn: Druid.ExtractionFn = {
+  "type": "substring",
+  "index": 1,
+  "length": 4
 };
