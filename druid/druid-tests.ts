@@ -354,3 +354,9 @@ var substrExtractionFn: Druid.ExtractionFn = {
   "index": 1,
   "length": 4
 };
+
+var regexExtractionFn: Druid.ExtractionFn = {
+  type: "regex",
+  expr: "^(.)",
+  replaceMissingValue: true
+};
