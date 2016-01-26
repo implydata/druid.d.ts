@@ -247,13 +247,17 @@ var segmentMetadataResult: Druid.SegmentMetadataResults = [
   {
     "id": "some_id",
     "intervals": ["2013-05-13T00:00:00.000Z/2013-05-14T00:00:00.000Z"],
+    "size": 300000,
+    "numRows": 654321,
     "columns": {
-      "__time": { "type": "LONG", "size": 407240380, "cardinality": null },
-      "dim1": { "type": "STRING", "size": 100000, "cardinality": 1944 },
-      "dim2": { "type": "STRING", "size": 100000, "cardinality": 1504 },
-      "metric1": { "type": "FLOAT", "size": 100000, "cardinality": null }
+      "__time": { "type": "LONG", "size": 407240380, "cardinality": null, hasMultipleValues: false },
+      "dim1": { "type": "STRING", "size": 100000, "cardinality": 1944, hasMultipleValues: false },
+      "dim2": { "type": "STRING", "size": 100000, "cardinality": 1504, hasMultipleValues: true },
+      "metric1": { "type": "FLOAT", "size": 100000, "cardinality": null, hasMultipleValues: false }
     },
-    "size": 300000
+    aggregators: {
+      "metric1": { "type": "doubleSum", "name": "metric1", "fieldName": "metric1" }
+    }
   }
 ];
 
