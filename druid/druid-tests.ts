@@ -171,7 +171,18 @@ var groupByQuery: Druid.Query = {
   "dataSource": "sample_datasource",
   "granularity": "day",
   "dimensions": ["dim1", "dim2"],
-  "limitSpec": { "type": "default", "limit": 5000, "columns": ["dim1", "metric1"] },
+  "limitSpec": {
+    "type": "default",
+    "limit": 5000,
+    "columns": [
+      {
+        "dimension": "page",
+        "direction": "descending",
+        "dimensionOrder": "alphaNumeric"
+      },
+      "metric1"
+    ]
+  },
   "filter": {
     "type": "and",
     "fields": [
