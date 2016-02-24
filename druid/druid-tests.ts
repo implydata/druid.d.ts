@@ -373,5 +373,31 @@ var substrExtractionFn: Druid.ExtractionFn = {
 var regexExtractionFn: Druid.ExtractionFn = {
   type: "regex",
   expr: "^(.)",
-  replaceMissingValue: true
+  "replaceMissingValues" : true,
+  "replaceMissingValuesWith" : "foobar"
+};
+
+var cascadeExtractionFn: Druid.ExtractionFn = {
+  "type" : "cascade",
+  "extractionFns": [
+    {
+      "type" : "regex",
+      "expr" : "/([^/]+)/",
+      "replaceMissingValues": false,
+      "replaceMissingValuesWith": null
+    },
+    {
+      "type" : "javascript",
+      "function" : "function(str) { return \"the \".concat(str) }"
+    },
+    {
+      "type" : "substring",
+      "index" : 0, "length" : 7
+    }
+  ]
+};
+
+var stringFormatExtractionFn: Druid.ExtractionFn = {
+  "type": "stringFormat",
+  "format": "[%s]"
 };
