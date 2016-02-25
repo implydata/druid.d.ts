@@ -373,8 +373,8 @@ var substrExtractionFn: Druid.ExtractionFn = {
 var regexExtractionFn: Druid.ExtractionFn = {
   type: "regex",
   expr: "^(.)",
-  "replaceMissingValues" : true,
-  "replaceMissingValuesWith" : "foobar"
+  "replaceMissingValue" : true,
+  "replaceMissingValueWith" : "foobar"
 };
 
 var cascadeExtractionFn: Druid.ExtractionFn = {
@@ -383,8 +383,8 @@ var cascadeExtractionFn: Druid.ExtractionFn = {
     {
       "type" : "regex",
       "expr" : "/([^/]+)/",
-      "replaceMissingValues": false,
-      "replaceMissingValuesWith": null
+      "replaceMissingValue": false,
+      "replaceMissingValueWith": null
     },
     {
       "type" : "javascript",

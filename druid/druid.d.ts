@@ -215,8 +215,7 @@ declare module Druid {
 
         // Specific to type: "regex"
         expr?: string;
-        replaceMissingValues?: boolean; // Note the extra 's'
-        replaceMissingValuesWith?: string; // Note the extra 's'
+        replaceMissingValue?: boolean;
 
         // Specific to type: "searchQuery"
         query?: string;
