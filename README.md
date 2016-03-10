@@ -14,4 +14,4 @@ This ambient type definition was written as part of [Plywood](https://github.com
 
 ## Note
 
-These definitions use union types and thus requires TypeScript >= 1.4
+These definitions use union and string types and thus requires TypeScript >= 1.8
