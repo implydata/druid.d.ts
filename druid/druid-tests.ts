@@ -310,11 +310,14 @@ var inFilter: Druid.Filter = {
   "values": ["good","bad"]
 };
 
-var betweenFilter: Druid.Filter = {
-  "type": "between",
-  "dimension": "dimTest",
-  "lower": 3,
-  "upper": 10
+var boundFilter: Druid.Filter = {
+  "type": "bound",
+  "dimension": "age",
+  "lower": "21",
+  "lowerStrict": true,
+  "upper": "31" ,
+  "upperStrict": true,
+  "alphaNumeric": true
 };
 
 var extractionFnFilter: Druid.Filter = {
