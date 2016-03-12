@@ -1,0 +1,11 @@
+#!/bin/bash -e
+
+if [ "$(git status --porcelain)" != "" ]
+then
+  echo "git status not clean!" >&2
+  exit 1
+fi
+
+echo "Trying to publish..."
+
+npm publish
