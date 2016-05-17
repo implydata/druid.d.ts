@@ -404,3 +404,74 @@ var stringFormatExtractionFn: Druid.ExtractionFn = {
   "type": "stringFormat",
   "format": "[%s]"
 };
+
+var thetaAggregation: Druid.Aggregation = {
+  "type": "thetaSketch",
+  "name": "blah",
+  "fieldName": "blah",
+  "isInputThetaSketch": false,
+  "size": 16384
+};
+
+var thetaSketchQuery: Druid.Query = {
+  "queryType": "groupBy",
+  "dataSource": "test_datasource",
+  "granularity": "ALL",
+  "dimensions": [],
+  "filter": {
+    "type": "or",
+    "fields": [
+      {"type": "selector", "dimension": "product", "value": "A"},
+      {"type": "selector", "dimension": "product", "value": "B"}
+    ]
+  },
+  "aggregations": [
+    {
+      "type" : "filtered",
+      "filter" : {
+        "type" : "selector",
+        "dimension" : "product",
+        "value" : "A"
+      },
+      "aggregator" :     {
+        "type": "thetaSketch", "name": "A_unique_users", "fieldName": "user_id_sketch"
+      }
+    },
+    {
+      "type" : "filtered",
+      "filter" : {
+        "type" : "selector",
+        "dimension" : "product",
+        "value" : "B"
+      },
+      "aggregator" :     {
+        "type": "thetaSketch", "name": "B_unique_users", "fieldName": "user_id_sketch"
+      }
+    }
+  ],
+  "postAggregations": [
+    {
+      "type": "thetaSketchEstimate",
+      "name": "final_unique_users",
+      "field":
+      {
+        "type": "thetaSketchSetOp",
+        "name": "final_unique_users_sketch",
+        "func": "INTERSECT",
+        "fields": [
+          {
+            "type": "fieldAccess",
+            "fieldName": "A_unique_users"
+          },
+          {
+            "type": "fieldAccess",
+            "fieldName": "B_unique_users"
+          }
+        ]
+      }
+    }
+  ],
+  "intervals": [
+    "2014-10-19T00:00:00.000Z/2014-10-22T00:00:00.000Z"
+  ]
+};
