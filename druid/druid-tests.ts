@@ -402,7 +402,8 @@ var cascadeExtractionFn: Druid.ExtractionFn = {
 
 var stringFormatExtractionFn: Druid.ExtractionFn = {
   "type": "stringFormat",
-  "format": "[%s]"
+  "format": "[%s]",
+  "nullHandling": "returnNull"
 };
 
 var thetaAggregation: Druid.Aggregation = {
