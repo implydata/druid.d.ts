@@ -337,6 +337,16 @@ var extractionFnFilter: Druid.Filter = {
   }
 };
 
+var containsFilter: Druid.Filter = {
+  "type": "search",
+  "dimension": "cityName",
+  "query": {
+    "type": "contains",
+    "value": "San",
+    "caseSensitive": true
+  }
+};
+
 var timeFormatDimensionSpec: Druid.DimensionSpec = {
   "type": "extraction",
   "dimension": "__time",
@@ -404,6 +414,14 @@ var stringFormatExtractionFn: Druid.ExtractionFn = {
   "type": "stringFormat",
   "format": "[%s]",
   "nullHandling": "returnNull"
+};
+
+var registeredLookupExtractionFn: Druid.ExtractionFn = {
+  "type": "registeredLookup",
+  "lookup": "some_lookup_name",
+  "retainMissingValue": true,
+  "injective": false,
+  "optimize": true
 };
 
 var thetaAggregation: Druid.Aggregation = {

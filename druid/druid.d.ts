@@ -199,8 +199,9 @@ declare module Druid {
     interface SearchQuerySpec {
         type: string;
 
-        // Specific to type: "insensitive_contains"
+        // Specific to type: "contains"
         value?: string;
+        caseSensitive?: boolean;
 
         // Specific to type: "fragment"
         values?: string[];
@@ -254,9 +255,10 @@ declare module Druid {
         locale?: string;
 
         // Specific to type: "lookup"
-        lookup?: ExtractionLookup;
+        lookup?: ExtractionLookup | string; // string if type = registeredLookup
         retainMissingValue?: boolean;
         replaceMissingValueWith?: string;
+        optimize?: boolean;
 
         // Specific to type: "cascade"
         extractionFns?: ExtractionFn[];
