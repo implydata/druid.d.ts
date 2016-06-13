@@ -465,4 +465,23 @@ declare module Druid {
     }
 
     type SelectResults = SelectDatum[];
+
+
+    interface StatusModule {
+        name: string;
+        artifact: string;
+        version: string;
+    }
+
+    interface StatusResult {
+        version: string;
+        modules: StatusModule[],
+        memory: {
+            maxMemory: number;
+            totalMemory: number;
+            freeMemory: number;
+            usedMemory: number;
+        };
+    }
+
 }

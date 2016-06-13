@@ -303,6 +303,38 @@ var selectResults: Druid.SelectResults = [
   }
 ];
 
+var statusResults: Druid.StatusResult = {
+  "version": "0.9.0",
+  "modules": [
+    {
+      "name": "io.druid.server.namespace.NamespacedExtractionModule",
+      "artifact": "druid-namespace-lookup",
+      "version": "0.9.0"
+    },
+    {
+      "name": "io.druid.query.aggregation.datasketches.theta.oldapi.OldApiSketchModule",
+      "artifact": "druid-datasketches",
+      "version": "0.9.0"
+    },
+    {
+      "name": "io.druid.query.aggregation.datasketches.theta.SketchModule",
+      "artifact": "druid-datasketches",
+      "version": "0.9.0"
+    },
+    {
+      "name": "io.druid.query.aggregation.histogram.ApproximateHistogramDruidModule",
+      "artifact": "druid-histogram",
+      "version": "0.9.0"
+    }
+  ],
+  "memory": {
+    "maxMemory": 1037959168,
+    "totalMemory": 1037959168,
+    "freeMemory": 946818992,
+    "usedMemory": 91140176
+  }
+};
+
 
 var inFilter: Druid.Filter = {
   "type": "in",
