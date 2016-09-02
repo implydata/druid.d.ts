@@ -408,6 +408,12 @@ var timeFormatDimensionSpec: Druid.DimensionSpec = {
   }
 };
 
+var regexFilteredDimensionSpec: Druid.DimensionSpec = {
+  "type": "regexFiltered",
+  "delegate": "tags",
+  "pattern": "a+"
+};
+
 var mapExtractionFn: Druid.ExtractionFn = {
   "type": "lookup",
   "lookup": {
