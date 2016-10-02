@@ -1,6 +1,6 @@
 {
   "name": "druid.d.ts",
-  "version": "0.9.1-rev4",
+  "version": "0.9.1-rev5",
   "homepage": "https://github.com/implydata/druid.d.ts",
   "repository": {
     "type": "git",
@@ -10,6 +10,12 @@
   "engines": {
     "node": ">= 4.0.0"
   },
+  "files": [
+    "druid/",
+    "index.js"
+  ],
+  "main": "index.js",
+  "typings": "druid/druid.d.ts",
   "scripts": {
     "test": "./node_modules/.bin/dt --changes",
     "changes": "./node_modules/.bin/dt --changes",
@@ -25,7 +31,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "definition-tester": "0.5.2",
-    "typescript": "1.8.10"
+    "definition-tester": "2.0.6-alpha",
+    "typescript": "2.0.3"
   }
 }
