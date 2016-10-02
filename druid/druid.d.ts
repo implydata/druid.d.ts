@@ -508,3 +508,7 @@ declare module Druid {
     }
 
 }
+
+declare module "druid.d.ts" {
+    export = Druid;
+}
