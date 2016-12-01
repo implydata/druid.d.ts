@@ -271,6 +271,10 @@ declare module Druid {
         timeZone?: string;
         locale?: string;
 
+        // Specific to type: "bucket"
+        size?: number;
+        offset?: number;
+
         // Specific to type: "lookup"
         lookup?: ExtractionLookup | string; // string if type = registeredLookup
         retainMissingValue?: boolean;

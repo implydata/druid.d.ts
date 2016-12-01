@@ -17,13 +17,13 @@
 
 /// <reference path="druid.d.ts" />
 
-var timeBoundaryQuery: Druid.Query = {
+let timeBoundaryQuery: Druid.Query = {
   "queryType": "timeBoundary",
   "dataSource": "sample_datasource",
   "bound": "maxTime"
 };
 
-var timeBoundaryResults: Druid.TimeBoundaryResults = [
+let timeBoundaryResults: Druid.TimeBoundaryResults = [
   {
     "timestamp": "2013-05-09T18:24:00.000Z",
     "result": {
@@ -34,7 +34,7 @@ var timeBoundaryResults: Druid.TimeBoundaryResults = [
 ];
 
 
-var timeseriesQuery: Druid.Query = {
+let timeseriesQuery: Druid.Query = {
   "queryType": "timeseries",
   "dataSource": "sample_datasource",
   "granularity": "day",
@@ -76,7 +76,7 @@ var timeseriesQuery: Druid.Query = {
   "intervals": ["2012-01-01T00:00:00.000/2012-01-03T00:00:00.000"]
 };
 
-var timeseriesResult: Druid.TimeseriesResults = [
+let timeseriesResult: Druid.TimeseriesResults = [
   {
     "timestamp": "2012-01-01T00:00:00.000Z",
     "result": { "sample_name1": 3, "sample_name2": 3, "sample_divide": 3 }
@@ -87,7 +87,7 @@ var timeseriesResult: Druid.TimeseriesResults = [
   }
 ];
 
-var topNQuery: Druid.Query = {
+let topNQuery: Druid.Query = {
   "queryType": "topN",
   "dataSource": "sample_data",
   "dimension": "sample_dim",
@@ -145,7 +145,7 @@ var topNQuery: Druid.Query = {
   ]
 };
 
-var topNResults: Druid.DruidResults = [
+let topNResults: Druid.DruidResults = [
   {
     "timestamp": "2013-08-31T00:00:00.000Z",
     "result": [
@@ -183,7 +183,7 @@ var topNResults: Druid.DruidResults = [
   }
 ];
 
-var groupByQuery: Druid.Query = {
+let groupByQuery: Druid.Query = {
   "queryType": "groupBy",
   "dataSource": "sample_datasource",
   "granularity": "day",
@@ -235,7 +235,7 @@ var groupByQuery: Druid.Query = {
   }
 };
 
-var groupByResults: Druid.GroupByResults = [
+let groupByResults: Druid.GroupByResults = [
   {
     "version": "v1",
     "timestamp": "2012-01-01T00:00:00.000Z",
@@ -260,7 +260,7 @@ var groupByResults: Druid.GroupByResults = [
   }
 ];
 
-var segmentMetadataQuery: Druid.Query = {
+let segmentMetadataQuery: Druid.Query = {
   "queryType": "segmentMetadata",
   "dataSource": "sample_datasource",
   "intervals": ["2013-01-01/2014-01-01"],
@@ -271,7 +271,7 @@ var segmentMetadataQuery: Druid.Query = {
   "merge": true
 };
 
-var segmentMetadataResult: Druid.SegmentMetadataResults = [
+let segmentMetadataResult: Druid.SegmentMetadataResults = [
   {
     "id": "some_id",
     "intervals": ["2013-05-13T00:00:00.000Z/2013-05-14T00:00:00.000Z"],
@@ -289,7 +289,7 @@ var segmentMetadataResult: Druid.SegmentMetadataResults = [
   }
 ];
 
-var selectResults: Druid.SelectResults = [
+let selectResults: Druid.SelectResults = [
   {
     "timestamp": "2013-01-01T00:00:00.000Z",
     "result": {
@@ -320,7 +320,7 @@ var selectResults: Druid.SelectResults = [
   }
 ];
 
-var statusResults: Druid.StatusResult = {
+let statusResults: Druid.StatusResult = {
   "version": "0.9.0",
   "modules": [
     {
@@ -353,13 +353,13 @@ var statusResults: Druid.StatusResult = {
 };
 
 
-var inFilter: Druid.Filter = {
+let inFilter: Druid.Filter = {
   "type": "in",
   "dimension": "dimTest",
   "values": ["good","bad"]
 };
 
-var boundFilter: Druid.Filter = {
+let boundFilter: Druid.Filter = {
   "type": "bound",
   "dimension": "age",
   "lower": "21",
@@ -369,7 +369,7 @@ var boundFilter: Druid.Filter = {
   "alphaNumeric": true
 };
 
-var extractionFnFilter: Druid.Filter = {
+let extractionFnFilter: Druid.Filter = {
   "type": "extraction",
   "dimension": "product",
   "value": "bar_1",
@@ -386,7 +386,7 @@ var extractionFnFilter: Druid.Filter = {
   }
 };
 
-var containsFilter: Druid.Filter = {
+let containsFilter: Druid.Filter = {
   "type": "search",
   "dimension": "cityName",
   "query": {
@@ -396,7 +396,7 @@ var containsFilter: Druid.Filter = {
   }
 };
 
-var timeFormatDimensionSpec: Druid.DimensionSpec = {
+let timeFormatDimensionSpec: Druid.DimensionSpec = {
   "type": "extraction",
   "dimension": "__time",
   "outputName": "dayOfWeek",
@@ -408,13 +408,13 @@ var timeFormatDimensionSpec: Druid.DimensionSpec = {
   }
 };
 
-var regexFilteredDimensionSpec: Druid.DimensionSpec = {
+let regexFilteredDimensionSpec: Druid.DimensionSpec = {
   "type": "regexFiltered",
   "delegate": "tags",
   "pattern": "a+"
 };
 
-var mapExtractionFn: Druid.ExtractionFn = {
+let mapExtractionFn: Druid.ExtractionFn = {
   "type": "lookup",
   "lookup": {
     "type": "map",
@@ -425,27 +425,27 @@ var mapExtractionFn: Druid.ExtractionFn = {
   "replaceMissingValueWith": "MISSING"
 };
 
-var namespaceExtractionFn: Druid.ExtractionFn = {
+let namespaceExtractionFn: Druid.ExtractionFn = {
   "type": "lookup",
   "lookup": { "type": "namespace", "namespace": "some_lookup" },
   "replaceMissingValueWith": "Unknown",
   "injective": false
 };
 
-var substrExtractionFn: Druid.ExtractionFn = {
+let substrExtractionFn: Druid.ExtractionFn = {
   "type": "substring",
   "index": 1,
   "length": 4
 };
 
-var regexExtractionFn: Druid.ExtractionFn = {
+let regexExtractionFn: Druid.ExtractionFn = {
   type: "regex",
   expr: "^(.)",
   "replaceMissingValue" : true,
   "replaceMissingValueWith" : "foobar"
 };
 
-var cascadeExtractionFn: Druid.ExtractionFn = {
+let cascadeExtractionFn: Druid.ExtractionFn = {
   "type" : "cascade",
   "extractionFns": [
     {
@@ -465,13 +465,13 @@ var cascadeExtractionFn: Druid.ExtractionFn = {
   ]
 };
 
-var stringFormatExtractionFn: Druid.ExtractionFn = {
+let stringFormatExtractionFn: Druid.ExtractionFn = {
   "type": "stringFormat",
   "format": "[%s]",
   "nullHandling": "returnNull"
 };
 
-var registeredLookupExtractionFn: Druid.ExtractionFn = {
+let registeredLookupExtractionFn: Druid.ExtractionFn = {
   "type": "registeredLookup",
   "lookup": "some_lookup_name",
   "retainMissingValue": true,
@@ -479,7 +479,13 @@ var registeredLookupExtractionFn: Druid.ExtractionFn = {
   "optimize": true
 };
 
-var thetaAggregation: Druid.Aggregation = {
+let bucketExtractionFn: Druid.ExtractionFn = {
+  "type": "bucket",
+  "size": 5,
+  "offset": 2
+};
+
+let thetaAggregation: Druid.Aggregation = {
   "type": "thetaSketch",
   "name": "blah",
   "fieldName": "blah",
@@ -487,7 +493,7 @@ var thetaAggregation: Druid.Aggregation = {
   "size": 16384
 };
 
-var thetaSketchQuery: Druid.Query = {
+let thetaSketchQuery: Druid.Query = {
   "queryType": "groupBy",
   "dataSource": "test_datasource",
   "granularity": "ALL",
