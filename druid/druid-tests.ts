@@ -92,7 +92,11 @@ let topNQuery: Druid.Query = {
   "dataSource": "sample_data",
   "dimension": "sample_dim",
   "threshold": 5,
-  "metric": "count",
+  "metric": {
+    "type": "dimension",
+    "ordering": "numeric",
+    "previousStop": "a"
+  },
   "granularity": "all",
   "filter": {
     "type": "and",

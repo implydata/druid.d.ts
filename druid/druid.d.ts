@@ -318,8 +318,11 @@ declare module Druid {
     interface TopNMetricSpecFull {
         type: string;
 
-        // Specific to type: "numeric" | "inverted"
+        // Specific to type: "inverted"
         metric?: TopNMetricSpec;
+
+        // Specific to type: "dimension"
+        ordering?: string;
 
         // Specific to type: "lexicographic" | "alphaNumeric"
         previousStop?: any;
@@ -327,8 +330,9 @@ declare module Druid {
 
     // http://druid.io/docs/latest/SelectQuery.html
     interface PagingSpec {
-        pagingIdentifiers: any; // ToDo: find better docs for this / ask FJ
+        pagingIdentifiers: PagingIdentifiers;
         threshold: number
+        fromNext?: boolean;
     }
 
     // http://druid.io/docs/latest/DataSource.html
