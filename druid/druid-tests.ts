@@ -370,7 +370,7 @@ let boundFilter: Druid.Filter = {
   "lowerStrict": true,
   "upper": "31" ,
   "upperStrict": true,
-  "alphaNumeric": true
+  "ordering": "numeric"
 };
 
 let extractionFnFilter: Druid.Filter = {
@@ -409,6 +409,23 @@ let timeFormatDimensionSpec: Druid.DimensionSpec = {
     "format": "EEEE",
     "timeZone": "America/Montreal",
     "locale": "fr"
+  }
+};
+
+let timeFormatDimensionSpec2: Druid.DimensionSpec = {
+  "type": "extraction",
+  "dimension": "__time",
+  "outputName": "dayOfWeek",
+  "extractionFn": {
+    "type": "timeFormat",
+    "format": "EEEE",
+    "timeZone": "America/Montreal",
+    "locale": "fr",
+    "granularity": {
+      "type": "period",
+      "period": "P1D",
+      "timeZone": "America/Los_Angeles"
+    }
   }
 };
 

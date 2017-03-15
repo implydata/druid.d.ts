@@ -65,6 +65,8 @@ declare module Druid {
     // http://druid.io/docs/latest/querying/timeseriesquery.html
     type Intervals = string | string[];
 
+    type Ordering = "lexicographic" | "alphanumeric" | "numeric" | "strlen";
+
     // http://druid.io/docs/latest/Filters.html
     interface Filter {
         type: string;
@@ -81,7 +83,8 @@ declare module Druid {
         upper?: number | string;
         lowerStrict?: boolean;
         upperStrict?: boolean;
-        alphaNumeric?: boolean;
+        alphaNumeric?: boolean; // This is deprecated
+        ordering?: Ordering;
 
         // Specific to type: "regex"
         pattern?: string;
@@ -270,6 +273,7 @@ declare module Druid {
         format?: string;
         timeZone?: string;
         locale?: string;
+        granularity?: Granularity;
 
         // Specific to type: "bucket"
         size?: number;
@@ -296,6 +300,7 @@ declare module Druid {
         nullHandling?: 'nullString' | 'emptyString' | 'returnNull';
     }
 
+    // http://druid.io/docs/latest/DimensionSpecs.html
     type DimensionSpec = string | DimensionSpecFull;
     interface DimensionSpecFull {
         type: string;
@@ -304,7 +309,7 @@ declare module Druid {
 
         // Specific to type: "extraction"
         extractionFn?: ExtractionFn;
-        dimExtractionFn?: ExtractionFn; // This will be deprecated soon
+        dimExtractionFn?: ExtractionFn; // This is deprecated
 
         // Specific to type: "listFiltered" | "regexFiltered"
         delegate?: DimensionSpec;
