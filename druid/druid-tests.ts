@@ -400,6 +400,19 @@ let containsFilter: Druid.Filter = {
   }
 };
 
+let having: Druid.Having = {
+  "type": "filter",
+  "filter": {
+    "type": "bound",
+    "dimension": "age",
+    "lower": "21",
+    "lowerStrict": true,
+    "upper": "31" ,
+    "upperStrict": true,
+    "ordering": "numeric"
+  }
+};
+
 let timeFormatDimensionSpec: Druid.DimensionSpec = {
   "type": "extraction",
   "dimension": "__time",

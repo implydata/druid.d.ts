@@ -1,11 +1,11 @@
-// Type definitions for druid.io (version 0.9.2)
+// Type definitions for druid.io (version 0.10.0)
 // Project: http://druid.io/
 // Definitions by: Vadim Ogievetsky <https://github.com/vogievetsky/>
 // Definitions: https://github.com/implyio/druid.d.ts
 
 /*
  * Copyright 2015-2015 Metamarkets Group Inc.
- * Copyright 2015-2016 Imply Data, Inc.
+ * Copyright 2015-2017 Imply Data, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -213,6 +213,9 @@ declare module Druid {
 
         // Specific to type: "and" | "or"
         havingSpecs?: Having[];
+
+        // Specific to type: "filter"
+        filter?: Filter;
     }
 
     // http://druid.io/docs/latest/SearchQuerySpec.html
