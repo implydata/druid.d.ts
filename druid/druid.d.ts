@@ -86,6 +86,9 @@ declare module Druid {
         alphaNumeric?: boolean; // This is deprecated
         ordering?: Ordering;
 
+        // Specific to type: "interval"
+        intervals?: Intervals;
+
         // Specific to type: "regex"
         pattern?: string;
 

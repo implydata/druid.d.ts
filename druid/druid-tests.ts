@@ -400,6 +400,15 @@ let containsFilter: Druid.Filter = {
   }
 };
 
+let intervalFilter: Druid.Filter = {
+  "type": "interval",
+  "dimension": "cityName",
+  "intervals": [
+      "2014-10-01T00:00:00.000Z/2014-10-07T00:00:00.000Z",
+      "2014-11-15T00:00:00.000Z/2014-11-16T00:00:00.000Z"
+  ]
+};
+
 let having: Druid.Having = {
   "type": "filter",
   "filter": {
