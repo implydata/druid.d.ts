@@ -119,6 +119,7 @@ declare module Druid {
 
         // Specific to type: "javascript" and "cardinality"
         fieldNames?: string[];
+        fields?: DimensionSpec[];
 
         // Specific to type: "javascript"
         fnAggregate?: string;

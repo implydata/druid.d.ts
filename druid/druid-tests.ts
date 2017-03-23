@@ -528,6 +528,20 @@ let bucketExtractionFn: Druid.ExtractionFn = {
   "offset": 2
 };
 
+let cardinalityAggregation: Druid.Aggregation = {
+  "type": "cardinality",
+  "name": "distinct_last_name_first_char",
+  "fields": [
+    {
+     "type": "extraction",
+     "dimension": "last_name",
+     "outputName":  "last_name_first_char",
+     "extractionFn": { "type" : "substring", "index" : 0, "length" : 1 }
+    }
+  ],
+  "byRow" : true
+};
+
 let thetaAggregation: Druid.Aggregation = {
   "type": "thetaSketch",
   "name": "blah",
