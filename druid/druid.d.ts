@@ -512,10 +512,9 @@ declare module Druid {
 
     interface StatusModule {
         name: string;
-        artifact: string;
-        version: string;
+        artifact?: string;
+        version?: string;
     }
-
     interface StatusResult {
         version: string;
         modules: StatusModule[],

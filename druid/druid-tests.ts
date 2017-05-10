@@ -343,9 +343,7 @@ let statusResults: Druid.StatusResult = {
       "version": "0.9.0"
     },
     {
-      "name": "io.druid.query.aggregation.histogram.ApproximateHistogramDruidModule",
-      "artifact": "druid-histogram",
-      "version": "0.9.0"
+      "name": "io.druid.query.aggregation.histogram.ApproximateHistogramDruidModule"
     }
   ],
   "memory": {
