@@ -283,7 +283,7 @@ let segmentMetadataResult: Druid.SegmentMetadataResults = [
     "numRows": 654321,
     "columns": {
       "__time": { "type": "LONG", "size": 407240380, "cardinality": null, hasMultipleValues: false },
-      "dim1": { "type": "STRING", "size": 100000, "cardinality": 1944, hasMultipleValues: false },
+      "dim1": { "type": "STRING", "size": 100000, "cardinality": 1944, hasMultipleValues: false, minValue: "A", maxValue: "Z" },
       "dim2": { "type": "STRING", "size": 100000, "cardinality": 1504, hasMultipleValues: true },
       "metric1": { "type": "FLOAT", "size": 100000, "cardinality": null, hasMultipleValues: false }
     },

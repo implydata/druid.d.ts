@@ -471,6 +471,8 @@ declare module Druid {
         type: string;
         size?: number;
         cardinality?: number;
+        minValue?: number | string;
+        maxValue?: number | string;
         hasMultipleValues?: boolean;
         errorMessage?: string;
     }
