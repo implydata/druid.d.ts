@@ -537,7 +537,8 @@ let cardinalityAggregation: Druid.Aggregation = {
      "extractionFn": { "type" : "substring", "index" : 0, "length" : 1 }
     }
   ],
-  "byRow" : true
+  "byRow": true,
+  "round": true
 };
 
 let thetaAggregation: Druid.Aggregation = {

@@ -132,6 +132,7 @@ declare module Druid {
 
         // Specific to type: "cardinality"
         byRow?: boolean;
+        round?: boolean;
 
         // Specific to type: "approxHistogramFold"
         resolution?: number;
