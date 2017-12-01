@@ -314,6 +314,7 @@ declare module Druid {
         type: string;
         dimension?: string;
         outputName?: string;
+        outputType?: 'STRING' | 'LONG' | 'FLOAT';
 
         // Specific to type: "extraction"
         extractionFn?: ExtractionFn;

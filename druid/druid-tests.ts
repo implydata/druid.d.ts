@@ -424,6 +424,7 @@ let timeFormatDimensionSpec: Druid.DimensionSpec = {
   "type": "extraction",
   "dimension": "__time",
   "outputName": "dayOfWeek",
+  "outputType": "LONG",
   "extractionFn": {
     "type": "timeFormat",
     "format": "EEEE",
