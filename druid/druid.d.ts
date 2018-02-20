@@ -112,8 +112,12 @@ declare module Druid {
     }
 
     // http://druid.io/docs/latest/Aggregations.html
+    export type AggregationType = 'count' | 'longSum' | 'doubleSum' | 'doubleMin' | 'doubleMax' | 'longMin' | 'longMax'
+  | 'doubleFirst' | 'doubleLast' | 'longFirst' | 'longLast' | 'cardinality' | 'hyperUnique' | 'thetaSketch'
+  | 'filtered' | 'javascript';
+ 
     interface Aggregation {
-        type: string;
+        type: AggregationType;
         name?: string;
         fieldName?: string;
 
