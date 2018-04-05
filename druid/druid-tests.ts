@@ -420,6 +420,13 @@ let having: Druid.Having = {
   }
 };
 
+let virtualColumn: Druid.VirtualColumn = {
+  "type": "expression",
+  "name": "d0:v",
+  "expression": "concat(concat(\"channel\",','),\"user\")",
+  "outputType": "STRING"
+};
+
 let timeFormatDimensionSpec: Druid.DimensionSpec = {
   "type": "extraction",
   "dimension": "__time",

@@ -308,13 +308,15 @@ declare module Druid {
         nullHandling?: 'nullString' | 'emptyString' | 'returnNull';
     }
 
+    type OutputType = 'STRING' | 'LONG' | 'FLOAT';
+
     // http://druid.io/docs/latest/DimensionSpecs.html
     type DimensionSpec = string | DimensionSpecFull;
     interface DimensionSpecFull {
         type: string;
         dimension?: string;
         outputName?: string;
-        outputType?: 'STRING' | 'LONG' | 'FLOAT';
+        outputType?: OutputType;
 
         // Specific to type: "extraction"
         extractionFn?: ExtractionFn;
@@ -325,6 +327,13 @@ declare module Druid {
         pattern?: string;
         values?: string[];
         isWhitelist?: boolean;
+    }
+
+    interface VirtualColumn {
+        type: string;
+        name: string;
+        expression: string;
+        outputType: OutputType;
     }
 
     // http://druid.io/docs/latest/TopNMetricSpec.html
@@ -374,6 +383,8 @@ declare module Druid {
         aggregations?: Aggregation[];
         postAggregations?: PostAggregation[];
         granularity?: Granularity;
+
+        virtualColumns?: VirtualColumn[];
 
         // Used by queryType: "groupBy" and "select";
         dimensions?: DimensionSpec[];
