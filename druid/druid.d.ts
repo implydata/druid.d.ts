@@ -104,6 +104,9 @@ declare module Druid {
         // Specific to type: "extraction"
         extractionFn?: ExtractionFn;
 
+        // Specific to type: "expression"
+        expression?: string;
+
         // Specific to type: "not"
         field?: Filter;
 
