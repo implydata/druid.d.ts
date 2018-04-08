@@ -619,3 +619,13 @@ let thetaSketchQuery: Druid.Query = {
     "2014-10-19T00:00:00.000Z/2014-10-22T00:00:00.000Z"
   ]
 };
+
+let scanQuery: Druid.Query = {
+  "queryType": "scan",
+  "dataSource": "wikipedia",
+  "resultFormat": "list",
+  "columns": [],
+  "intervals": ["2013-01-01/2013-01-02"],
+  "batchSize": 20480,
+  "limit": 5
+};

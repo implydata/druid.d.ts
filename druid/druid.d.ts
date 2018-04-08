@@ -429,6 +429,14 @@ declare module Druid {
         metrics?: string[];
         pagingSpec?: PagingSpec;
         descending?: boolean;
+
+        // Specific to queryType: "scan"
+        // http://druid.io/docs/latest/querying/scan-query.html
+        resultFormat?: 'list' | 'compactedList';
+        columns?: string[];
+        batchSize?: number;
+        limit?: number;
+        legacy?: boolean;
     }
 
     /* ----------------------- *\
