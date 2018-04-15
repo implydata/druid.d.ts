@@ -152,6 +152,12 @@ declare module Druid {
     interface PostAggregation {
         type: string;
         name?: string;
+        ordering?: string;
+
+        // Specific to type: "expression"
+        expression?: string;
+
+        // Specific to type: "arithmetic"
         fn?: string;
         fields?: PostAggregation[];
 

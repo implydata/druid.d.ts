@@ -557,6 +557,13 @@ let thetaAggregation: Druid.Aggregation = {
   "size": 16384
 };
 
+let expressionPostAggregation: Druid.PostAggregation = {
+    "type": "expression",
+    "name": "p0",
+    "expression": "(\"a0\" + \"a1\")",
+    "ordering": null
+};
+
 let thetaSketchQuery: Druid.Query = {
   "queryType": "groupBy",
   "dataSource": "test_datasource",
