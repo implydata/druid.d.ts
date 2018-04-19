@@ -317,7 +317,7 @@ declare module Druid {
         nullHandling?: 'nullString' | 'emptyString' | 'returnNull';
     }
 
-    type OutputType = 'STRING' | 'LONG' | 'FLOAT';
+    type OutputType = 'STRING' | 'LONG' | 'FLOAT' | 'DOUBLE';
 
     // http://druid.io/docs/latest/DimensionSpecs.html
     type DimensionSpec = string | DimensionSpecFull;
