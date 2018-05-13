@@ -92,8 +92,13 @@ declare module Druid {
         // Specific to type: "regex"
         pattern?: string;
 
-        // Specific to type: "search"
+        // Specific to type: "search" (and "fullText")
         query?: SearchQuerySpec;
+
+        // Specific to type: "fullText"
+        textColumn?: string;
+        termsColumn?: string;
+        matchAll?: boolean;
 
         // Specific to type: "javascript"
         "function"?: string;

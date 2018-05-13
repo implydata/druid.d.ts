@@ -407,6 +407,14 @@ let intervalFilter: Druid.Filter = {
   ]
 };
 
+let fullTextFilter: Druid.Filter = {
+    "type": "fullText",
+    "textColumn": "comment",
+    "termsColumn": "commentTerms",
+    "query": "hello world",
+    "matchAll": true
+};
+
 let having: Druid.Having = {
   "type": "filter",
   "filter": {
