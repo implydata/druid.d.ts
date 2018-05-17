@@ -99,6 +99,7 @@ declare module Druid {
         textColumn?: string;
         termsColumn?: string;
         matchAll?: boolean;
+        usePrefixForLastTerm?: boolean;
 
         // Specific to type: "javascript"
         "function"?: string;

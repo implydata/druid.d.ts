@@ -412,7 +412,8 @@ let fullTextFilter: Druid.Filter = {
     "textColumn": "comment",
     "termsColumn": "commentTerms",
     "query": "hello world",
-    "matchAll": true
+    "matchAll": true,
+    "usePrefixForLastTerm": true
 };
 
 let having: Druid.Having = {
