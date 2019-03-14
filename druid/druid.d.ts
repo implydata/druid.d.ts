@@ -125,6 +125,7 @@ declare module Druid {
         type: string;
         name?: string;
         fieldName?: string;
+        expression?: string;
 
         // Specific to type: "javascript" and "cardinality"
         fieldNames?: string[];
@@ -152,6 +153,9 @@ declare module Druid {
         // Specific to type: "thetaSketch"
         isInputThetaSketch?: boolean;
         size?: number;
+
+        // Specific to type: "quantilesDoublesSketch"
+        k?: number;
     }
 
     // http://druid.io/docs/latest/Post-aggregations.html
@@ -196,6 +200,9 @@ declare module Druid {
         // Specific to type: "thetaSketchSetOp"
         func?: 'UNION' | 'INTERSECT' | 'NOT';
         size?: number;
+
+        // Specific to type: "quantilesDoublesSketchToQuantile"
+        fraction?: number;
     }
 
     // http://druid.io/docs/latest/Granularities.html

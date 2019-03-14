@@ -558,6 +558,12 @@ let cardinalityAggregation: Druid.Aggregation = {
   "round": true
 };
 
+let expressionAggregation: Druid.Aggregation = {
+  "type": "doubleSum",
+  "name": "sumsumsum",
+  "expression": 'substr("lol", 1, 2)'
+};
+
 let thetaAggregation: Druid.Aggregation = {
   "type": "thetaSketch",
   "name": "blah",
@@ -566,11 +572,28 @@ let thetaAggregation: Druid.Aggregation = {
   "size": 16384
 };
 
+let quantilesDoublesSketchAggregation: Druid.Aggregation = {
+  name: 'tn',
+  type: 'quantilesDoublesSketch',
+  fieldName: 'delta',
+  k: 256
+};
+
 let expressionPostAggregation: Druid.PostAggregation = {
     "type": "expression",
     "name": "p0",
     "expression": "(\"a0\" + \"a1\")",
     "ordering": null
+};
+
+let quantilesDoublesSketchToQuantile: Druid.PostAggregation = {
+  name: "blah",
+  type: "quantilesDoublesSketchToQuantile",
+  field: {
+    type: "fieldAccess",
+    fieldName: "my_agg"
+  },
+  fraction: 0.5
 };
 
 let thetaSketchQuery: Druid.Query = {
