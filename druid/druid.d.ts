@@ -31,7 +31,7 @@ declare module Druid {
     interface Context {
         timeout?: number;
         priority?: number;
-        queryId?: number;
+        queryId?: number | string;
         useCache?: FancyBoolean;
         populateCache?: FancyBoolean;
         bySegment?: FancyBoolean;
