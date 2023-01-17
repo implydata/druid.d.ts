@@ -213,7 +213,7 @@ declare module Druid {
 
         period?: string;
         timeZone?: string;
-        origin?: string;
+        origin?: string | number;
     }
 
     // http://druid.io/docs/latest/LimitSpec.html
